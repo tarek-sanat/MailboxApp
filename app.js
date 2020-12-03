@@ -69,7 +69,7 @@ app.get('/history', (req, res) => {
 
 app.get('/', (req, res) => {
     if(req.session.loggedin){
-        res.render('index', {loggedin: req.session.loggedin});
+        res.render('index', {loggedin: req.session.loggedin, name: req.session.username});
     } else {
         res.render('index', {loggedin: req.session.loggedin});
     }

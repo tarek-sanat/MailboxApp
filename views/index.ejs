@@ -78,16 +78,25 @@
   </nav>
 	
 	<center>
-	    <div class="jumbotron">
-  <h1 class="display-4">Do you have mail?</h1>
-  <p class="lead">MailAlert will tell you in realtime if you have mail!</p>
-  <hr class="my-4">
-  <p>MailAlert is a product that allows you to track your mail with ease and leave you with a piece of mind on if your mail has come in.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="signup" role="button">Sign Up Today!</a>
-  </p>
-</div>
-</center>
+	  <div class="jumbotron">
+      <% if(!loggedin) {%>
+        <h1 class="display-4">Do you have mail?</h1>
+        <p class="lead">MailAlert will tell you in realtime if you have mail!</p>
+        <hr class="my-4">
+        <p>MailAlert is a product that allows you to track your mail with ease and leave you with a piece of mind on if your mail has come in.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="signup" role="button">Sign Up Today!</a>
+        </p>
+      <% } else {%>
+        <h1 class="display-4">Welcome Back <%= name %></h1>
+        <p class="lead">MailAlert will tell you in realtime if you have mail!</p>
+        <hr class="my-4">
+        <p>Click here to view your latest notifications!</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="mailHistory" role="button">History</a>
+      <% } %>
+    </div>
+  </center>
 
 
 	<div>
