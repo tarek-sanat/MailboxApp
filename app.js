@@ -7,7 +7,7 @@ const mysql = require('mysql');
 const bcrypt = require('bcrypt');
 const session = require('express-session')
 
-
+//app 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: false}))
 app.use(session({
