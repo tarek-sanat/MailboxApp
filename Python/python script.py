@@ -26,11 +26,12 @@ count = 0
 ser = serial.Serial('/dev/ttyACM0', 9600)    #Establish connection with arduino on port 9600
 
 #MYSQL DB connect to the db
+# USE YOUR DATABASE INFORMATION
 mydb = mysql.connector.connect(
-    host= 'sq65ur5a5bj7flas.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-    user= 'kxb5ji0e50jeqngz',
-    password= 'aqsouslrrfaz87u2',
-    database= 'cewjisrez7gdnfzd'
+    host= '',
+    user= '',
+    password= '',
+    database= ''
     )
 
 location = location()                 #Get location 
