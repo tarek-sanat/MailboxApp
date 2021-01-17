@@ -12,7 +12,7 @@ import geocoder
 
 def location():
     location = geocoder.ip('me')
-    KEY = 'ecGJNkrlvQ07103g7rRhI94t7k8nVkrZ'
+    KEY = '' # YOUR OWN MAPQUESTAPI KEY
     response = requests.get('http://www.mapquestapi.com/geocoding/v1/reverse?key=' + KEY + '&location=' +str(location.lat) +',' + str(location.lng) + '&includeRoadMetadata=true&includeNearestIntersection=true')
     
     return response.json()['results'][0]['locations'][0]['adminArea5']

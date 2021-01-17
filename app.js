@@ -17,17 +17,12 @@ app.use(session({
 }))
 app.use(express.static('views'));
 
-// var db_config = {
-//     host: 'us-cdbr-east-02.cleardb.com',
-//     user: 'b27ce3b3a6edf8',
-//     password: '7757e214',
-//     database: 'heroku_5c1ff8a4829a1b1'
-// };
+// YOUR OWN DATABASE LOGIN CREDENTIALS
 var db_config = {
-    host: 'sq65ur5a5bj7flas.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-    user: 'kxb5ji0e50jeqngz',
-    password: 'aqsouslrrfaz87u2',
-    database: 'cewjisrez7gdnfzd'
+    host: '',
+    user: '',
+    password: '',
+    database: ''
 };
 
 var connection;
@@ -42,13 +37,8 @@ connection.connect();
 
 
 var users;
-// connection.query('select * from users', function(error, results){
-//     if(error) throw error;
-//     data = results;
-//     console.log(data);
-// });
 
-
+// get request of /history page 
 app.get('/history', (req, res) => {
     // select from the database
     connection.query('select * from data where username = ?', [req.session.username], function(error, results){
@@ -67,6 +57,7 @@ app.get('/history', (req, res) => {
     
 })
 
+// get request of index page
 app.get('/', (req, res) => {
     if(req.session.loggedin){
         res.render('index', {loggedin: req.session.loggedin, name: req.session.username});
@@ -77,6 +68,7 @@ app.get('/', (req, res) => {
     
 })
 
+// get request of login page
 app.get('/login', (req, res) => {
     if(req.session.loggedin){
         res.render('index', {loggedin: req.session.loggedin});
@@ -85,7 +77,9 @@ app.get('/login', (req, res) => {
     }
 })
 
+//post request to login page
 app.post('/login', async(req, res) => {
+    //check if username and password matches to connect 
     var username = req.body.username;
     var password = req.body.password;
     var hash;
@@ -148,6 +142,7 @@ app.post('/signup', async (req,res) =>{
     }
 
 })
+
 app.get('/about', (req, res) => {
     res.render('about', {loggedin: req.session.loggedin});
 })
