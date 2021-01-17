@@ -10,7 +10,7 @@ http://mailboxapp.herokuapp.com/  <br/>
 Get an alert on the mailbox alert website when you receive your mail!
 
 ### Getting Started
-
+This is a group project for CSI-2999 sophomore project at Oakland University.
 
 ### Prerequisites
 
